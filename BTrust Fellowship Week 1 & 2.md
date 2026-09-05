@@ -32,7 +32,7 @@ BIP152 proposed compact blocks to help the main network improve block propagatio
 
 There are two modes of compact blocks, high and low bandwidth modes. An image of how block download and message flows differ between legacy relaying and the two modes of compact blocks can be seen below. When a node has high bandwidth mode enabled, it takes half or possibly one round trip if the node needs additional transactions. This drastically lowers the amount of bandwidth involved in block relay because the entire new block no longer needs to be relayed and downloaded. Lower block propagation time is a by product of compact blocks assuming the nodes share similar mempools. I won't detail much about the low bandwidth mode besides that it's beneficial for resource constrained nodes.
 
-![[Pasted image 20260904150103.png]]
+![block propagation protocol flows](assets/protocol-flow.png)
 Image from "[Compact Blocks FAQ](https://bitcoincore.org/en/2016/06/07/compact-blocks-faq/)" detailing how compact block relay changed node messaging
 
 To give some perspective on how impactful compact blocks are, Greg Maxwell mentions that about 12% of the bandwidth of a Bitcoin node accounts for block relay. Compact blocks lower this by 99%, thus the impact on a node's performance is an order of 99% of 12%.
