@@ -22,7 +22,7 @@ The same goes for blindly signing transactions on the Lightning network. A Blind
 - A Lightning user pays an invoice more than once
 - And many more that can be found [here](https://vls.tech/docs/v0.14.0/security/potential-exploits/)
 
-Another issue with Blind Signers is that users must trust the node operator. "Blind signing wallets where nodes are run by a Lightning Service Provider (LSP), are not self-custodial because the LSP can unilaterally control the funds.[^2]" Yes, this implies that if a malicious actor were to gain control of the node they would have access to the user's funds. All that would be necessary is to provide the Blind Signer with a transaction that sends the funds to their wallet.
+Another issue with Blind Signers is that users must trust the node operator. "Blind signing wallets where nodes are run by a Lightning Service Provider (LSP), are not self-custodial because the LSP can unilaterally control the funds.[^1]" Yes, this implies that if a malicious actor were to gain control of the node they would have access to the user's funds. All that would be necessary is to provide the Blind Signer with a transaction that sends the funds to their wallet.
 
 Finally, one of the biggest issues with the Blind Signer model is that there becomes two points of attack to access the wallet funds. An attacker could directly take your Blind Signer to access your funds or they could gain remote access of the node and communicate directly with the signer like previously mentioned. This offers worse security than the "Monolithic Node" (meaning everything is contained in the node) because funds can be lost if either the node or signer are compromised. Looking at the image below, you can get a better idea of this.
 
@@ -33,7 +33,7 @@ Image from "[Blind Signing Considered Harmful](https://medium.com/@devrandom/bli
 
 In the image above, there is a third Lightning node architecture called Validating Lightning Signer ([VLS](https://vls.tech/)) This project is attempting to raise the bar for security on Lightning. Essentially, it's a library that supports self-custodial Lightning signers that separate your private keys from a Lightning node (like a Blind Signer) AND validates each signing request, ensuring only legitimate channel operations are approved. VLS immediately peaked my interest because of the security it offers Lightning users.
 
-Self-custody is engrained in the ethos of Bitcoin because it offers a way to transact without relying on a third party. Satoshi put it plainly in the whitepaper by saying, "What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party.[^1]" There is no reason why we shouldn't attempt to maintain self-custody best practices as we build layer 2 solutions. VLS does this by separating signing from node logic, and adding real validation. Thus, users are able to have true self-custody Lightning and resilience against node compromises. Even if an attacker gains total root access to the machine running your Lightning node and/or your Bitcoin node, they still cannot steal your funds. his is what sets VLS apart. 
+Self-custody is engrained in the ethos of Bitcoin because it offers a way to transact without relying on a third party. Satoshi put it plainly in the whitepaper by saying, "What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party.[^2]" There is no reason why we shouldn't attempt to maintain self-custody best practices as we build layer 2 solutions. VLS does this by separating signing from node logic, and adding real validation. Thus, users are able to have true self-custody Lightning and resilience against node compromises. Even if an attacker gains total root access to the machine running your Lightning node and/or your Bitcoin node, they still cannot steal your funds. his is what sets VLS apart. 
 
 The image below shows the system overview for VLS. You can see some of the same elements of the system like the Bitcoin Node, Lightning Node, and its peers in the Lightning Network. But now there are a few more elements, most notably the VLS Remote Signer.
 
@@ -54,3 +54,11 @@ If a user wants the their VLS signer to validate base chain information, they're
 VLS paves the way for Layer-2 multi-signature transactions, which I am extremely excited about. This is a current area of research being looked at by some of the brightest minds in the Bitcoin space and would be a significant advancement in the security of the Lightning Network. I plan to continue following the development of this and might write something about it if I get enough interest.
 
 Cheers and thanks for reading!
+
+## References
+
+[^1] [Blind Signing Considered Harmful](https://medium.com/@devrandom/blind-signing-considered-harmful-ac82e5852853) by devrandom
+[^2] [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf) by Satoshi Nakamoto
+[Securing Lightning Nodes](https://medium.com/@devrandom/securing-lightning-nodes-39410747734b) by devrandom
+
+ 
