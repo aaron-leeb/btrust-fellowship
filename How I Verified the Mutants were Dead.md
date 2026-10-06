@@ -8,7 +8,7 @@ I started the review process by reading the PR description. From the description
 
 To put it plainly, it's the engine that evaluates Bitcoin Script. Bitcoin Script is the programming language responsible for securing and verifying ownership of users funds. Every time a transaction occurs, a programmatic puzzle matching a cryptographic key to a lock must be solved. The interpreter.cpp file is the judge that executes that puzzle. If a bug here accidentally evaluates an invalid script as true, someone could steal funds. If it evaluates a valid script as false, funds are frozen forever. That's why proving these mutants are dead is not just good practice. It's critically important for the network!
 
-In order to validate the test cases being proposed in the PR, I needed to run the tests. I did this by running a series of commands to checkout the PR (Note: this is assuming you have already cloned the repo and configured the master branch as a remoted named upstream):
+In order to validate the test cases being proposed in the PR, I needed to run the tests locally. I did this by running a series of commands to checkout the PR (Note: this is assuming you have already cloned the repo and configured the master branch as a remote named upstream):
 
 ```
 # Make sure your local repository is up to date
