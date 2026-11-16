@@ -1,0 +1,2 @@
+
+I am writing this article at the beginning of the 12th and final week of the BTrust Bitcoin Open-Source Fellowship. Looking back, what an experience it has been. From the opening call until now, it has been quite a transformational experience. Not only pertaining to my new knowledge of Bitcoin technology and contributing to open-source software organizations, but much more. This fellowship has pushed me to become better at learning, communicating, problem solving, and programming. 
